@@ -20,3 +20,11 @@ Abrir Navegador
 
 Fechar Navegador
     close browser
+
+Ler Jason
+    [arguments]     ${nome_arquivo}
+
+    ${arquivo}      get file    ${EXECDIR}/resources/fixtures/${nome_arquivo}
+    ${arquivo_json} evaluate    jason.loads(${arquivo})     json
+
+    [retur]     ${arquivo_jason}
